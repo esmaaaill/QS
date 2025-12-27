@@ -13,9 +13,10 @@ try {
 }
 
 const authStore = {
-  // We can rely on supabase.auth.session() or keep a local signal
-  get session() {
-    return supabase?.auth.session(); // v1 style, but v2 uses getSession
+  // Keep a convenience accessor for the current session (v2 uses getSession)
+  async session() {
+    const { data } = await supabase.auth.getSession();
+    return data.session;
   }
 };
 
@@ -188,6 +189,37 @@ const initAuthFlows = async () => {
   const authStatus = document.querySelector('#authStatus');
   const profileDetails = document.querySelector('#profileDetails');
   const logoutBtn = document.querySelector('#logoutBtn');
+  const tokenStatus = document.querySelector('#tokenStatus');
+  const checkTokenBtn = document.querySelector('#checkToken');
+
+  if (!supabase) {
+    setStatus(signupStatus, 'Supabase is not configured. Update assets/config.js.', true);
+    setStatus(loginStatus, 'Supabase is not configured. Update assets/config.js.', true);
+    return;
+  }
+
+  const renderToken = async () => {
+    if (!tokenStatus) return;
+
+    try {
+      const { data, error } = await supabase.auth.getSession();
+      if (error) throw error;
+
+      const session = data.session;
+      if (!session?.access_token) {
+        tokenStatus.textContent = 'No active session token';
+        tokenStatus.className = 'tag';
+        return;
+      }
+
+      const expires = new Date(session.expires_at * 1000);
+      tokenStatus.textContent = `Token valid • expires ${expires.toLocaleString()}`;
+      tokenStatus.className = 'tag success';
+    } catch (err) {
+      tokenStatus.textContent = err.message || 'Unable to fetch token';
+      tokenStatus.className = 'tag error';
+    }
+  };
 
   // Render profile based on current Supabase session
   const renderProfile = async () => {
@@ -198,6 +230,7 @@ const initAuthFlows = async () => {
       if (profileDetails) profileDetails.innerHTML = '';
       if (authStatus) authStatus.textContent = 'No account connected yet.';
       if (logoutBtn) logoutBtn.style.display = 'none';
+      await renderToken();
       return;
     }
 
@@ -207,6 +240,7 @@ const initAuthFlows = async () => {
       <div class="summary-row"><span>ID</span><strong>${user.id.slice(0, 8)}...</strong></div>
     `;
     if (logoutBtn) logoutBtn.style.display = 'inline-block';
+    await renderToken();
   };
 
   // Initial render
@@ -217,6 +251,11 @@ const initAuthFlows = async () => {
     if (event === 'SIGNED_IN' || event === 'SIGNED_OUT') {
       renderProfile();
     }
+  });
+
+  checkTokenBtn?.addEventListener('click', async (e) => {
+    e.preventDefault();
+    await renderToken();
   });
 
   signupForm?.addEventListener('submit', async (e) => {
