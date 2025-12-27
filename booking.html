@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quick Stay | Booking</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/styles.css" />
+</head>
+
+<body>
+  <header class="navbar">
+    <div class="container inner">
+      <div class="brand">
+        <div class="logo" aria-hidden="true">QS</div>
+        <span>Quick Stay</span>
+      </div>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="index.html">Home</a>
+        <a href="places.html">Recommended Places</a>
+        <a href="about.html">About Us</a>
+        <a href="contact.html">Contact</a>
+        <a class="btn btn-primary" href="booking.html" aria-current="page">Login</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container section">
+    <div class="badge" data-reveal>Secure checkout</div>
+    <h1 class="section-title">Complete your booking</h1>
+    <p class="section-subtitle">Tell us about your stay and we'll confirm instantly.</p>
+
+    <section class="auth-grid" aria-label="Account creation and login">
+      <article class="card form-card" data-reveal>
+        <h2>Sign up</h2>
+        <p class="section-subtitle">Create an account so your reservations stay linked to you.</p>
+        <form id="signupForm" class="stacked" aria-label="Sign up form">
+          <div class="field">
+            <label for="signupName">Full name</label>
+            <input id="signupName" name="name" type="text" required placeholder="Alex Traveler" />
+          </div>
+          <div class="field">
+            <label for="signupEmail">Email</label>
+            <input id="signupEmail" name="email" type="email" required placeholder="you@example.com" />
+          </div>
+          <div class="field">
+            <label for="signupPassword">Password</label>
+            <input id="signupPassword" name="password" type="password" required minlength="6"
+              placeholder="At least 6 characters" />
+          </div>
+          <button type="submit" class="btn btn-primary">Create account</button>
+          <p id="signupStatus" class="form-status" aria-live="polite"></p>
+        </form>
+      </article>
+
+      <article class="card form-card" data-reveal>
+        <h2>Login</h2>
+        <p class="section-subtitle">Already have an account? Access it here.</p>
+        <form id="loginForm" class="stacked" aria-label="Login form">
+          <div class="field">
+            <label for="loginEmail">Email</label>
+            <input id="loginEmail" name="email" type="email" required placeholder="you@example.com" />
+          </div>
+          <div class="field">
+            <label for="loginPassword">Password</label>
+            <input id="loginPassword" name="password" type="password" required placeholder="Your password" />
+          </div>
+          <button type="submit" class="btn btn-primary">Login</button>
+          <p id="loginStatus" class="form-status" aria-live="polite"></p>
+        </form>
+      </article>
+
+      <article class="card sidebar" data-reveal id="profilePanel" aria-live="polite">
+        <h2>Session status</h2>
+        <p id="authStatus" class="section-subtitle">No account connected yet.</p>
+        <div class="summary-row" id="profileDetails"></div>
+        <div class="tag" id="tokenStatus">Token not requested</div>
+        <div class="rows" style="margin-top:12px; gap:10px;">
+          <button class="btn btn-primary" id="checkToken">Verify session</button>
+          <button class="btn" id="logoutBtn" type="button">Log out</button>
+        </div>
+      </article>
+    </section>
+
+    <div class="split">
+      <form id="bookingForm" class="card form-card" aria-label="Booking form">
+        <div class="field">
+          <label for="name">Full name</label>
+          <input id="name" name="name" type="text" placeholder="Jane Doe" required />
+        </div>
+        <div class="field">
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" placeholder="you@example.com" required />
+        </div>
+        <div class="field">
+          <label for="checkin">Check-in</label>
+          <input id="checkin" name="checkin" type="date" required />
+        </div>
+        <div class="field">
+          <label for="checkout">Check-out</label>
+          <input id="checkout" name="checkout" type="date" required />
+        </div>
+        <div class="field">
+          <label for="room">Room type</label>
+          <select id="room" name="room" required>
+            <option value="">Select a room</option>
+            <option>Oceanview Deluxe Suite</option>
+            <option>Signature City Studio</option>
+            <option>Garden Pool Villa</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="payment">Payment method</label>
+          <select id="payment" name="payment" required>
+            <option value="">Choose payment</option>
+            <option>Visa •••• 2456</option>
+            <option>Mastercard •••• 8831</option>
+            <option>Pay at property</option>
+          </select>
+        </div>
+        <button class="btn btn-primary" type="submit">Confirm Booking</button>
+      </form>
+
+      <aside class="card sidebar" data-reveal id="bookingSummary" aria-live="polite">
+        <h3>Booking summary</h3>
+        <div class="summary-row"><span>Property</span><strong>Laguna Shoreline Resort</strong></div>
+        <div class="summary-row"><span>Nights</span><strong>3</strong></div>
+        <div class="summary-row"><span>Guests</span><strong>2 adults</strong></div>
+        <div class="summary-row"><span>Taxes & fees</span><strong>$64</strong></div>
+        <div class="summary-row"><span>Total</span><strong>$844</strong></div>
+        <p class="tag">Free cancellation • No hidden fees</p>
+      </aside>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container rows">
+      <div>Payments secured with 256-bit encryption.</div>
+      <div style="display:flex; gap:12px;">
+        <a href="index.html">Home</a>
+        <a href="places.html">Places</a>
+        <a href="contact.html">Support</a>
+      </div>
+    </div>
+  </footer>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="assets/config.js"></script>
+  <script src="assets/app.js"></script>
+</body>
+
+</html>

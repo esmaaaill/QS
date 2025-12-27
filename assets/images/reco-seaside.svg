@@ -1,0 +1,22 @@
+<svg width="900" height="560" viewBox="0 0 900 560" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Seaside resort illustration</title>
+  <desc id="desc">Beachfront resort with palm trees, umbrellas, and a calm shoreline.</desc>
+  <defs>
+    <linearGradient id="sea" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop stop-color="#71d1cf" offset="0" />
+      <stop stop-color="#2daaa8" offset="1" />
+    </linearGradient>
+  </defs>
+  <rect width="900" height="560" rx="22" fill="#fdf6ee" />
+  <rect y="300" width="900" height="260" fill="url(#sea)" />
+  <rect y="440" width="900" height="120" fill="#f6d09c" />
+  <circle cx="120" cy="150" r="70" fill="#ffd27f" opacity="0.8" />
+  <rect x="320" y="220" width="260" height="160" rx="24" fill="#ffffff" stroke="#e8e1da" stroke-width="6" />
+  <rect x="360" y="260" width="70" height="70" rx="12" fill="#2daaa8" />
+  <rect x="450" y="240" width="90" height="100" rx="14" fill="#ff6b2c" opacity="0.85" />
+  <rect x="365" y="350" width="210" height="20" fill="#1f1f1f" opacity="0.08" />
+  <path d="M190 420c-14-36-30-50-56-50s-42 12-56 50h112z" fill="#f7c14d" opacity="0.5" />
+  <path d="M690 420c-12-30-25-42-46-42s-34 10-46 42h92z" fill="#f7c14d" opacity="0.35" />
+  <path d="M120 420c-10-44-30-92-52-94-22-2-44 46-54 94h106z" fill="#2daaa8" opacity="0.4" />
+  <path d="M780 420c-12-48-30-98-54-98s-42 50-54 98h108z" fill="#2daaa8" opacity="0.32" />
+</svg>

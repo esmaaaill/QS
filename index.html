@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quick Stay | Find Your Hotel</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/styles.css" />
+</head>
+
+<body>
+  <header class="navbar">
+    <div class="container inner">
+      <div class="brand">
+        <div class="logo" aria-hidden="true">QS</div>
+        <span>Quick Stay</span>
+      </div>
+      <button class="mobile-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="index.html" class="active">Home</a>
+        <a href="places.html">Recommended Places</a>
+        <a href="about.html">About Us</a>
+        <a href="contact.html">Contact</a>
+        <a class="btn btn-primary" href="booking.html">Login</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div class="hero-grid">
+        <div data-reveal>
+          <div class="badge">Curated by travel experts</div>
+          <h1>Hotel for memorable moments rich in <em>emotions</em></h1>
+          <p>Experience boutique stays, coastal retreats, and vibrant city escapes all in one curated platform designed
+            to delight modern travelers.</p>
+          <div style="display:flex; gap:12px; align-items:center; flex-wrap:wrap;">
+            <a class="btn btn-primary" href="places.html" aria-label="Take a tour of recommended places">
+              <span style="font-size:1.1rem;">▶</span> Take a tour
+            </a>
+            <span class="tag">Trusted by 120k+ guests</span>
+          </div>
+        </div>
+        <div class="hero-visual" data-reveal>
+          <img src="assets/images/hero-building.png" alt="Modern hotel exterior at sunset" loading="lazy" />
+        </div>
+      </div>
+
+      <form id="searchForm" class="card search-card" aria-label="Hotel search form">
+        <div class="field">
+          <label for="location">Location</label>
+          <input id="location" name="location" type="text" placeholder="Search cities or hotels" required />
+        </div>
+        <div class="field">
+          <label for="guests">Guests</label>
+          <select id="guests" name="guests" required>
+            <option value="">Select guests</option>
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5+</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="checkin">Check-in</label>
+          <input id="checkin" name="checkin" type="date" required />
+        </div>
+        <div class="field">
+          <label for="checkout">Check-out</label>
+          <input id="checkout" name="checkout" type="date" required />
+        </div>
+        <button class="btn btn-primary" type="submit" aria-label="Search availability">Search</button>
+      </form>
+      <div id="searchResults" class="search-results" aria-live="polite"></div>
+    </section>
+
+    <section class="section" id="highlights">
+      <h2 class="section-title">Featured escapes</h2>
+      <p class="section-subtitle">Handpicked hotels ready for your next memorable stay.</p>
+      <div class="grid grid-3">
+        <article class="card hotel-card" data-reveal>
+          <img src="assets/images/hotel-1-pool.jpg" alt="Seaside resort with pool" />
+          <div class="card-body">
+            <div class="card-meta">
+              <strong>Laguna Shoreline Resort</strong>
+              <span class="rating">★★★★☆</span>
+            </div>
+            <div class="card-meta">
+              <span>Malibu, USA</span>
+              <span class="price">$260/night</span>
+            </div>
+            <a class="btn btn-primary" href="room.html">Reserve Now</a>
+          </div>
+        </article>
+        <article class="card hotel-card" data-reveal>
+          <img src="assets/images/hotel-2-new.jpg" alt="City skyline hotel" />
+          <div class="card-body">
+            <div class="card-meta">
+              <strong>Skyline Signature</strong>
+              <span class="rating">★★★★★</span>
+            </div>
+            <div class="card-meta">
+              <span>Dubai, UAE</span>
+              <span class="price">$340/night</span>
+            </div>
+            <a class="btn btn-primary" href="room.html">Reserve Now</a>
+          </div>
+        </article>
+        <article class="card hotel-card" data-reveal>
+          <img src="assets/images/hotel-3-new.jpg" alt="Mountain lodge" />
+          <div class="card-body">
+            <div class="card-meta">
+              <strong>Summit Chalet</strong>
+              <span class="rating">★★★★☆</span>
+            </div>
+            <div class="card-meta">
+              <span>Whistler, Canada</span>
+              <span class="price">$210/night</span>
+            </div>
+            <a class="btn btn-primary" href="room.html">Reserve Now</a>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container rows">
+      <div>© 2024 Quick Stay. Crafted for seamless getaways.</div>
+      <div style="display:flex; gap:12px;">
+        <a href="about.html">About</a>
+        <a href="contact.html">Support</a>
+        <a href="booking.html#admin">Admin</a>
+      </div>
+    </div>
+  </footer>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="assets/config.js"></script>
+  <script src="assets/app.js"></script>
+</body>
+
+</html>

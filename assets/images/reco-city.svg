@@ -1,0 +1,28 @@
+<svg width="900" height="560" viewBox="0 0 900 560" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">City skyline hotel</title>
+  <desc id="desc">Modern skyscrapers at night with warm hotel lighting.</desc>
+  <defs>
+    <linearGradient id="night" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop stop-color="#0f1829" offset="0" />
+      <stop stop-color="#1d2d46" offset="1" />
+    </linearGradient>
+    <linearGradient id="glow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop stop-color="#ffb347" offset="0" />
+      <stop stop-color="#ff6b2c" offset="1" />
+    </linearGradient>
+  </defs>
+  <rect width="900" height="560" rx="22" fill="url(#night)" />
+  <circle cx="120" cy="120" r="46" fill="#ffd27f" opacity="0.86" />
+  <rect x="180" y="180" width="140" height="300" rx="16" fill="#16243c" stroke="#233455" stroke-width="4" />
+  <rect x="340" y="140" width="130" height="340" rx="18" fill="#223456" stroke="#2f4a7a" stroke-width="5" />
+  <rect x="490" y="210" width="140" height="270" rx="20" fill="#14243a" stroke="#2f4a7a" stroke-width="4" />
+  <rect x="650" y="190" width="100" height="290" rx="18" fill="#1a2b45" stroke="#2f4a7a" stroke-width="4" />
+  <rect x="380" y="260" width="60" height="40" rx="8" fill="url(#glow)" />
+  <rect x="260" y="240" width="60" height="40" rx="8" fill="#ffb347" opacity="0.8" />
+  <rect x="520" y="260" width="60" height="40" rx="8" fill="#ffb347" opacity="0.8" />
+  <rect x="680" y="250" width="44" height="36" rx="8" fill="#ffb347" opacity="0.8" />
+  <rect x="340" y="200" width="30" height="20" rx="6" fill="#ff6b2c" opacity="0.85" />
+  <rect x="412" y="180" width="32" height="22" rx="7" fill="#ff6b2c" opacity="0.85" />
+  <rect x="230" y="360" width="450" height="30" fill="#ffffff" opacity="0.08" />
+  <rect x="210" y="400" width="500" height="18" fill="#ffffff" opacity="0.08" />
+</svg>

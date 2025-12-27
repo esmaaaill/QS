@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quick Stay | Room Details</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/styles.css" />
+</head>
+<body>
+  <header class="navbar">
+    <div class="container inner">
+      <div class="brand">
+        <div class="logo" aria-hidden="true">QS</div>
+        <span>Quick Stay</span>
+      </div>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="index.html">Home</a>
+        <a href="places.html">Recommended Places</a>
+        <a href="about.html">About Us</a>
+        <a href="contact.html">Contact</a>
+        <a class="btn btn-primary" href="booking.html">Login</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container section">
+    <div class="badge" data-reveal>Laguna Shoreline Resort</div>
+    <h1 class="section-title">Oceanview Deluxe Suite</h1>
+    <p class="section-subtitle">Wake up to golden sunrises, curated amenities, and concierge-led experiences tailored to you.</p>
+
+    <div class="split">
+      <div class="card" data-reveal>
+        <div class="carousel">
+          <img data-slide src="https://images.unsplash.com/photo-1501117716987-c8e1ecb210af?auto=format&fit=crop&w=1400&q=80" alt="Hotel facade" />
+          <img data-slide src="https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&w=1400&q=80" alt="Room interior" />
+          <img data-slide src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=1400&q=80" alt="Resort pool" />
+          <button class="prev" aria-label="Previous image">‹</button>
+          <button class="next" aria-label="Next image">›</button>
+        </div>
+        <div class="card-body">
+          <h3>Room description</h3>
+          <p>Spacious 55m² suite featuring a panoramic balcony, rainfall shower, artisanal minibar, and bespoke bedding. Complimentary breakfast, high-speed Wi‑Fi, and beach club access included.</p>
+          <div class="amenities">
+            <div class="amenity">🏝️ Private balcony</div>
+            <div class="amenity">🛁 Spa bathroom</div>
+            <div class="amenity">🍳 Breakfast included</div>
+            <div class="amenity">🧘 Wellness studio</div>
+            <div class="amenity">🚗 Valet parking</div>
+            <div class="amenity">🛰️ Fast Wi‑Fi</div>
+          </div>
+        </div>
+      </div>
+      <aside class="card sidebar" data-reveal aria-label="Booking summary">
+        <div class="summary-row"><span>From</span><strong>$260/night</strong></div>
+        <div class="summary-row"><span>Rating</span><strong>4.8 ★</strong></div>
+        <div class="summary-row"><span>Guests</span><strong>Up to 4</strong></div>
+        <div class="summary-row"><span>Cancellation</span><strong>Free until 48h</strong></div>
+        <a class="btn btn-primary" href="booking.html">Book Now</a>
+        <p class="tag">No prepayment needed • Instant confirmation</p>
+      </aside>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container rows">
+      <div>Ready to reserve? Confirm your dates in seconds.</div>
+      <div style="display:flex; gap:12px;">
+        <a href="places.html">Back to places</a>
+        <a href="booking.html">Book now</a>
+      </div>
+    </div>
+  </footer>
+  <script src="assets/app.js"></script>
+</body>
+</html>

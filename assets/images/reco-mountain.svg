@@ -1,0 +1,22 @@
+<svg width="900" height="560" viewBox="0 0 900 560" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Mountain lodge retreat</title>
+  <desc id="desc">Cozy lodge in the mountains with pine trees and warm lights.</desc>
+  <defs>
+    <linearGradient id="sky2" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop stop-color="#9fd4ff" offset="0" />
+      <stop stop-color="#eaf4ff" offset="1" />
+    </linearGradient>
+  </defs>
+  <rect width="900" height="560" rx="22" fill="url(#sky2)" />
+  <path d="M0 420h900v140H0z" fill="#f1e5d7" />
+  <path d="M90 420l140-220 160 220H90z" fill="#2b3f5a" opacity="0.85" />
+  <path d="M360 420l150-240 150 240H360z" fill="#304a68" />
+  <path d="M570 420l120-180 130 180H570z" fill="#1f3248" opacity="0.9" />
+  <rect x="340" y="320" width="220" height="120" rx="20" fill="#fff9f2" stroke="#d6c7b7" stroke-width="5" />
+  <rect x="376" y="340" width="60" height="60" rx="10" fill="#ff6b2c" opacity="0.9" />
+  <rect x="470" y="340" width="60" height="60" rx="10" fill="#f7c14d" opacity="0.9" />
+  <rect x="340" y="390" width="220" height="20" fill="#1f1f1f" opacity="0.08" />
+  <rect x="330" y="420" width="240" height="18" fill="#1f1f1f" opacity="0.08" />
+  <path d="M220 420c-8-40-26-96-44-96-18 0-34 56-44 96h88z" fill="#2daaa8" opacity="0.4" />
+  <path d="M720 420c-10-46-30-94-52-94s-42 48-52 94h104z" fill="#2daaa8" opacity="0.36" />
+</svg>

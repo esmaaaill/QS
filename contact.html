@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quick Stay | Contact</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/styles.css" />
+</head>
+<body>
+  <header class="navbar">
+    <div class="container inner">
+      <div class="brand">
+        <div class="logo" aria-hidden="true">QS</div>
+        <span>Quick Stay</span>
+      </div>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="index.html">Home</a>
+        <a href="places.html">Recommended Places</a>
+        <a href="about.html">About Us</a>
+        <a href="contact.html" class="active">Contact</a>
+        <a class="btn btn-primary" href="booking.html">Login</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container section">
+    <div class="badge" data-reveal>We're here to help</div>
+    <h1 class="section-title">Contact our concierge</h1>
+    <p class="section-subtitle">Reach out for booking assistance, partnership inquiries, or press.</p>
+
+    <div class="split">
+      <form id="contactForm" class="card form-card" aria-label="Contact form">
+        <div class="field">
+          <label for="name">Name</label>
+          <input id="name" name="name" type="text" placeholder="Your name" required />
+        </div>
+        <div class="field">
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" placeholder="you@example.com" required />
+        </div>
+        <div class="field">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" placeholder="Tell us how we can help" required></textarea>
+        </div>
+        <button class="btn btn-primary" type="submit">Send message</button>
+        <div id="contactStatus" aria-live="polite"></div>
+      </form>
+
+      <aside class="card sidebar" data-reveal>
+        <div class="map-placeholder" aria-label="Map placeholder">Map preview</div>
+        <div class="card-body">
+          <h3>Contact details</h3>
+          <p class="card-meta">24/7 concierge team ready to help.</p>
+          <div class="summary-row"><span>Phone</span><strong>+1 (800) 555-0123</strong></div>
+          <div class="summary-row"><span>Email</span><strong>care@quickstay.com</strong></div>
+          <div class="summary-row"><span>Address</span><strong>88 Harbor Blvd, Suite 12</strong></div>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container rows">
+      <div>We reply within minutes for urgent travel support.</div>
+      <div style="display:flex; gap:12px;">
+        <a href="index.html">Home</a>
+        <a href="places.html">Places</a>
+        <a href="booking.html">Booking</a>
+      </div>
+    </div>
+  </footer>
+  <script src="assets/app.js"></script>
+</body>
+</html>

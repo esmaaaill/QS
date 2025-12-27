@@ -1,0 +1,16 @@
+{
+  "name": "quick-stay",
+  "version": "1.0.0",
+  "description": "Quick Stay static site with basic Express authentication demo backend.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "node --check index.js"
+  },
+  "private": true,
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "express": "^4.19.2",
+    "jsonwebtoken": "^9.0.2"
+  }
+}
