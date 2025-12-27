@@ -179,7 +179,8 @@ const initBookingForm = () => {
 };
 
 // Enable sign up, login via Supabase
-const initAuthFlows = () => {
+// Enable sign up, login via Supabase
+const initAuthFlows = async () => {
   const signupForm = document.querySelector('#signupForm');
   const loginForm = document.querySelector('#loginForm');
   const signupStatus = document.querySelector('#signupStatus');
@@ -188,30 +189,35 @@ const initAuthFlows = () => {
   const profileDetails = document.querySelector('#profileDetails');
   const logoutBtn = document.querySelector('#logoutBtn');
 
-  // Simple local storage for demo
-  const getLocalUser = () => {
-    try {
-      return JSON.parse(localStorage.getItem('user'));
-    } catch { return null; }
-  };
+  // Render profile based on current Supabase session
+  const renderProfile = async () => {
+    const { data: { session } } = await supabase.auth.getSession();
+    const user = session?.user;
 
-  const renderProfile = () => {
-    const user = getLocalUser();
     if (!user) {
       if (profileDetails) profileDetails.innerHTML = '';
       if (authStatus) authStatus.textContent = 'No account connected yet.';
       if (logoutBtn) logoutBtn.style.display = 'none';
       return;
     }
+
     if (authStatus) authStatus.textContent = `Signed in as ${user.email}`;
     if (profileDetails) profileDetails.innerHTML = `
       <div class="summary-row"><span>Email</span><strong>${user.email}</strong></div>
-      <div class="summary-row"><span>Name</span><strong>${user.name}</strong></div>
+      <div class="summary-row"><span>ID</span><strong>${user.id.slice(0, 8)}...</strong></div>
     `;
     if (logoutBtn) logoutBtn.style.display = 'inline-block';
   };
 
-  renderProfile();
+  // Initial render
+  await renderProfile();
+
+  // Listen for auth state changes (login, logout, etc.)
+  supabase.auth.onAuthStateChange((event, session) => {
+    if (event === 'SIGNED_IN' || event === 'SIGNED_OUT') {
+      renderProfile();
+    }
+  });
 
   signupForm?.addEventListener('submit', async (e) => {
     e.preventDefault();
@@ -219,21 +225,20 @@ const initAuthFlows = () => {
     const { email, password, name } = Object.fromEntries(new FormData(signupForm));
 
     try {
-      const res = await fetch('/api/auth/signup', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, password, name })
+      const { data, error } = await supabase.auth.signUp({
+        email,
+        password,
+        options: {
+          data: { name: name }
+        }
       });
-      const data = await res.json();
 
-      if (res.ok) {
-        setStatus(signupStatus, 'Account created! Please login.', false);
-        signupForm.reset();
-      } else {
-        setStatus(signupStatus, data.message || 'Error creating account', true);
-      }
+      if (error) throw error;
+
+      setStatus(signupStatus, 'Account created! Please check your email to confirm.', false);
+      signupForm.reset();
     } catch (err) {
-      setStatus(signupStatus, 'Connection error. Ensure server is running.', true);
+      setStatus(signupStatus, err.message, true);
     }
   });
 
@@ -243,33 +248,29 @@ const initAuthFlows = () => {
     const { email, password } = Object.fromEntries(new FormData(loginForm));
 
     try {
-      const res = await fetch('/api/auth/login', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, password })
+      const { data, error } = await supabase.auth.signInWithPassword({
+        email,
+        password
       });
-      const data = await res.json();
 
-      if (res.ok) {
-        localStorage.setItem('token', data.token);
-        localStorage.setItem('user', JSON.stringify(data.user));
-        setStatus(loginStatus, 'Login successful!', false);
-        loginForm.reset();
-        renderProfile();
-      } else {
-        setStatus(loginStatus, data.message || 'Login failed', true);
-      }
+      if (error) throw error;
+
+      setStatus(loginStatus, 'Login successful!', false);
+      loginForm.reset();
+      // renderProfile() will be triggered by onAuthStateChange
     } catch (err) {
-      setStatus(loginStatus, 'Connection error. Ensure server is running.', true);
+      setStatus(loginStatus, err.message || 'Login failed', true);
     }
   });
 
-  logoutBtn?.addEventListener('click', (e) => {
+  logoutBtn?.addEventListener('click', async (e) => {
     e.preventDefault();
-    localStorage.removeItem('token');
-    localStorage.removeItem('user');
-    setStatus(loginStatus, 'Logged out.', false);
-    renderProfile();
+    const { error } = await supabase.auth.signOut();
+    if (!error) {
+      setStatus(loginStatus, 'Logged out.', false);
+    } else {
+      console.error('Logout error:', error);
+    }
   });
 };
 

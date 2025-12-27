@@ -8,7 +8,7 @@
 
 ### Step 1: Deploy Database Schema (5 minutes)
 
-1. Go to: https://supabase.com/dashboard/project/lwceejeiupqngxjayuhc/editor
+1. Go to: https://supabase.com/dashboard/project/uqdfmntewhttdnmwufuh/editor
 2. Click **SQL Editor** in the left sidebar
 3. Click **New Query**
 4. Copy and paste the entire contents of `supabase/migrations/20240101000000_initial_schema.sql`
@@ -26,7 +26,7 @@ npm install -g supabase
 supabase login
 
 # Link to your project
-supabase link --project-ref lwceejeiupqngxjayuhc
+supabase link --project-ref uqdfmntewhttdnmwufuh
 
 # Deploy all functions
 supabase functions deploy paymob-initiate
@@ -35,7 +35,7 @@ supabase functions deploy bookings
 ```
 
 #### Option B: Manual Deployment via Dashboard
-1. Go to: https://supabase.com/dashboard/project/lwceejeiupqngxjayuhc/functions
+1. Go to: https://supabase.com/dashboard/project/uqdfmntewhttdnmwufuh/functions
 2. Click **Deploy a new function**
 3. For each function (`paymob-initiate`, `paymob-webhook`, `bookings`):
    - Name: (function name)
@@ -45,7 +45,7 @@ supabase functions deploy bookings
 
 ### Step 3: Set Environment Secrets
 
-1. Go to: https://supabase.com/dashboard/project/lwceejeiupqngxjayuhc/settings/vault
+1. Go to: https://supabase.com/dashboard/project/uqdfmntewhttdnmwufuh/settings/vault
 2. Click **Secrets** tab
 3. Add these secrets (click **New secret** for each):
 
