@@ -24,6 +24,11 @@ This repository contains the Quick Stay marketing site plus a lightweight Expres
    ```
    The server defaults to `http://localhost:3000`. Set `PORT` to override.
 3. Open the site in your browser at the server URL and navigate to **Booking** to try the auth flows.
+4. (Optional) Seed the demo Supabase user used in QA:
+   ```bash
+   cp .env.example .env # fill in your Supabase keys
+   npm run seed:user
+   ```
 
 ### Environment variables
 - `PORT`: Optional. Port for the Express server (defaults to `3000`).
