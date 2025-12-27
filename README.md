@@ -18,21 +18,29 @@ This repository contains the Quick Stay marketing site plus a lightweight Expres
    ```bash
    npm install
    ```
-2. Start the server (serves the static site and the API):
+2. Add your Supabase credentials (these are prefilled for the provided demo project):
+   ```bash
+   cp .env.example .env
+   # .env now contains SUPABASE_URL and SUPABASE_ANON_KEY for the shared project
+   # Optionally add SUPABASE_SERVICE_ROLE_KEY if you want the server to auto-confirm users
+   ```
+3. Start the server (serves the static site and the API):
    ```bash
    npm start
    ```
    The server defaults to `http://localhost:3000`. Set `PORT` to override.
-3. Open the site in your browser at the server URL and navigate to **Booking** to try the auth flows.
-4. (Optional) Seed the demo Supabase user used in QA:
+4. Open the site in your browser at the server URL and navigate to **Booking** to try the auth flows.
+5. (Optional) Seed the demo Supabase user used in QA:
    ```bash
    cp .env.example .env # fill in your Supabase keys
    npm run seed:user
    ```
 
 ### Environment variables
+- `SUPABASE_URL`: Supabase project URL (pre-filled in `.env.example`).
+- `SUPABASE_ANON_KEY` / `SUPABASE_KEY`: Supabase anon/publishable key for client and public server calls.
+- `SUPABASE_SERVICE_ROLE_KEY`: Optional. Enables the backend to auto-confirm users via the admin API.
 - `PORT`: Optional. Port for the Express server (defaults to `3000`).
-- `JWT_SECRET`: Optional. Secret for signing JWT tokens (defaults to a development string). Always override this in production.
 
 ## API reference
 All endpoints are prefixed with `/api` and return JSON.
